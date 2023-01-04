@@ -1,0 +1,32 @@
+1-criar um banco de dados 
+    CREATE DATABASE <nome>;
+
+2-listar todos os bancos de dados 
+    SHOW DATABASES;
+
+3-para selecionar todos os dados de uma tabela de um determinado banco
+	SELECT * FROM <nome da tabela>
+
+4-apontar para um banco em específico, para que os comandos seguintes sejam para este banco
+    USE <nome do banco>
+
+5-para deletar um banco em específico usamos o comando 
+	DROP DATABASE <nome do banco>
+
+6-para exportar um banco (mandar para fora, gerar um arquivo), tudo ficará salvo em arquivo .sql 
+	comando no terminal 
+	mysqldump -u root nome do banco > nome do arquivo.sql
+	ex: mysqldump -u root empresa2 > empresa2.sql
+
+7-é possível concatenar, selecionando primeiro o banco e depois atabela no mesmo comando 
+	SELECT * FROM empresa.funcionarios;
+
+8-para criar uma tabela, dentro de um banco já existente 
+	CREATE TABLE <nome da tabela> (<coluna> <tipo de dado>)
+    ex: CREATE TABLE pessoas (nome VARCHAR(100), cpf CHAR(11), descricao MEDIUMTEXT);
+
+9-para remover uma tabela de um banco específico 
+	DROP TABLE <nome da tabela>
+
+10-
+

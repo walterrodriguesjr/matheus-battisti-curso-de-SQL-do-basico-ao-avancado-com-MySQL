@@ -1,0 +1,184 @@
+https://www.udemy.com/course/sql-do-basico-ao-avancado-com-mysql-e-projeto/learn/lecture/25707458?start=0#overview
+
+
+seção 1-introdução 
+
+
+1-introdução do curso 
+-explicação da proposta do curso 
+-a linguagem utilizada no banco será MySQL, no back usará PHP 
+
+2-apresentação do curso
+-apresentando a estrutura e cronograma do curso 
+
+3-o que é SQL? 
+-é uma linguagem de banco de dados 
+-linguagem struturada de consulta(structured query language)
+-é a linguagem de banco de dados relacionais 
+-trabalha usando querys (INSERT, UPTADE, SELECT)
+-serve para manipular DB 
+
+4-diferenças entre SQL e MySQL 
+-SQL é a linguagem e MySQL é o SGBD (sistema de gerenciamento de banco de dados)
+-MySQL é o software para trabalhar com a linguam SQL, no caso, o workbench 
+
+5-o que é um banco de dados? 
+-é onde armazenamos os dados do nosso sistema 
+-cria-se os bancos de dados através do SQL (a linguam SQL, e usando o SGBD MySQL, neste caso)
+-os bancos possuem tabelas, que por sua vez, possuem as colunas 
+
+6-principais elementos de um banco de dados 
+-diagrama do banco = é o projeto do banco, é um desenho do banco
+-banco de dados = a entidade que vai guardar todos os elementos
+-tabelas = a categoria dos dados, os estão as colunas e consequentemente os dados 
+-colunas = tipos de informações que precisam salvar 
+-dados = o dado final entregue pelo usuário 
+
+7-instalação do MySQL no windows 
+-instalação do XAMPP(para obter: PHP, MySQL e o Apache)
+
+8-executando MySQL no terminal do windows 
+-em algumas situações entra se pelo terminal, por não haver um SGBD visual instalado 
+-configurado em editar variáveis de ambiente para adicionar no Path, o MySQL do Xampp
+	C:\xampp\mysql\bin   inserido no Path 
+-em seguida fecha o terminal, ao abrir acessa o MySQL usando: 
+	mysql -u root
+-comandos: 
+	SHOW DATABASES; - exibir os bancos dentro do MySQL do XAMPP 
+
+9-instalação do MySQL no linux 
+-não necessário
+
+10-instalação do MySQL Workbench 
+-Workbench é um software para gerenciar bancos em SQL 
+-INSTALADO DIRETO DO PRÓPRIO SITE 
+
+11-problemas ao baixar/instalar o workbench 
+-não necessário 
+
+12-instalação do HeidiSQL 
+-outra instalação de software SGBD de SQL, mais leve 
+-não necessário
+
+13-instalação do VScode 
+-não necessário, já instalado 
+
+14-extensão do mysql no vscode 
+-a extensão é mysql 
+-acessar bancos através da extensão do vscode 
+
+15-arquivos do curso 
+-arquivo contendo os comando SQL (https://github.com/matheusbattisti/curso_sql)
+
+16-slides do curso 
+-ok 
+
+17-criando nosso primeiro banco de dados 
+-instrução para criar um banco de dados: 
+	CREATE DATABASE <nome>
+
+18-a sintaxe do SQL 
+-em SQL por convenção, todas as instruções são em maiúsculo, e os nomes em minúsculo (banco, tabela, coluna)
+-todas as instruções devem finaizar ocm ponto e vírgula 
+
+19-exercício 1
+-criar um banco de dados, definir um nome para o banco 
+
+20-o que é importação de banco de dados? 
+-quando se tem um arquivo pronto de banco, com tabelas e dados, e inserimos no nosso SGBD 
+-são originados de uma exportação 
+-seria como pegar uma cópia do banco, não sendo o banco original em produção 
+
+21-importando um banco de dados na prática 
+-fazer o download dos arquivos do curso 
+-acessa o MySQL pelo terminal
+-cria-se um novo banco, nome empresa 
+-seleciona o banco: USE <nome>
+-depois utilizar o comando: source <nome>
+-o comando USE faz o banco de dados ser o principal no momento 
+-o terminal precisa estar na pasta do arquivo 
+-para acessar um arquivo de banco de dados, deve se navegar com o terminal até a pasta onde ele está, 
+	em seguida usar o: mysql -u root
+-dentro do MySQL, criou se o banco empresa com: CREATE DATABASE empresa;
+-em seguida USE empresa; para acessar o banco empresa criado;
+-em seguida o source empresa.sql;  para pegar os dados do arquivo sql e por no banco 
+-é possivel importar tambpém usando o workbench, indo em: Server/Data import 
+-o melhor é fazer no terminal mesmo 
+
+22-selecionando os dados de uma tabela 
+-para selecionar todos os dados de uma tabela 
+	SELECT * FROM <nome da tabela>
+
+23-exercício 2 
+-selecionar os dados da tabela servicos 
+
+24-como tirar o máximo de proveito deste curso 
+-executar todas as instruções da aula 
+-fazer os exercício 
+-criar os próprios exemplos 
+
+25-conclusão da seção 
+-OK
+
+
+seção 2-gerenciando bancos de dados 
+
+
+26-introdução da seção 
+-OK 
+
+27-criação de banco de dados 
+-criando bancos e tabelas 
+-criando um banco 
+	CREATE DATABASE <nome do banco>
+
+28-verificando banco de dados 
+-para listar todos os bancos 
+	SHOW DATABASES;
+
+29-removendo banco de dados 
+-para deletar um banco em específico usamos o comando, porém depois não tem volta
+	DROP DATABASE <nome do banco>
+
+30-exercício 3 
+-criar um banco com o nome de 'computador'
+-verificar se o banco foi criado 
+-dropar o banco 
+
+31-exportando banco de dados 
+-para exportar um banco (mandar para fora, gerar um arquivo), tudo ficará salvo em arquivo .sql 
+	comando no terminal 
+	mysqldump -u root nome do banco > nome do arquivo.sql
+	ex: mysqldump -u root empresa2 > empresa2.sql
+
+32-utilizando um banco de dados 
+-para utilizar (apontar) um banco, para que os comandos seguidos, sejam direcionados a este banco
+	USE nome do banco 
+-sempre deve ser o primeiro comando, para ter certeza que está direcionando os comandos a este banco 
+-é possível concatenar, selecionando primeiro o banco e depois atabela no mesmo comando 
+	SELECT * FROM empresa.funcionarios;
+
+33-conclusão da seção 
+-OK 
+
+
+seção 3-gerenciamento de tabelas 
+
+
+34-introdução da seção 
+-explicado que esta seção é focado na manipulação de tabelas 
+
+35-o que é uma tabela? 
+-tabela tem suas colunas (categorias e com tipos de dados determinados), tem também atributos/caracteristicas
+	(não nulo, chave primária, auto incremento etc...) e dentro os dados, separados por linhas
+
+36-criando uma tabela 
+-para criar uma tabela, dentro de um banco já existente 
+	CREATE TABLE <nome da tabela> (<coluna> <tipo de dado> (quantidade de caracteres))
+	ex: CREATE TABLE pessoas (nome VARCHAR(100), cpf CHAR(11), descricao MEDIUMTEXT);
+-o tipo de dado mais comum e usado é o VARCHAR (texto/string)
+
+37-removendo tabelas 
+-para remover uma tabela de um banco específico 
+	DROP TABLE <nome da tabela>
+
