@@ -102,7 +102,7 @@ seção 1-introdução
 -dentro do MySQL, criou se o banco empresa com: CREATE DATABASE empresa;
 -em seguida USE empresa; para acessar o banco empresa criado;
 -em seguida o source empresa.sql;  para pegar os dados do arquivo sql e por no banco 
--é possivel importar tambpém usando o workbench, indo em: Server/Data import 
+-é possivel importar também, usando o workbench, indo em: Server/Data import 
 -o melhor é fazer no terminal mesmo 
 
 22-selecionando os dados de uma tabela 
@@ -182,3 +182,35 @@ seção 3-gerenciamento de tabelas
 -para remover uma tabela de um banco específico 
 	DROP TABLE <nome da tabela>
 
+38-sobre os tipos de dados da SQL 
+-os tipos de dado servem para classificar um dado inserido em uma coluna 
+-ex: texto, data, número e outros 
+-é possível também definir a quantidade máxima de caracteres
+-são divididos em: texto, numérico, data e espacial 
+
+39-tipos de dados de texto 
+-CHAR, VARCHAR, TINYTEXT, MEDIUMTEXT 
+
+40-exercício 4 
+-criando um novo banco 
+-criar um banco com o nome: teste_tipo_dados 
+
+41-tabela com colunas do tipo texto
+-criando uma tabela com tipos de texto 
+	CHAR, VARCHAR e MEDIUMTEXT 
+	CREATE TABLE produtos(nome VARCHAR(50), sku CHAR(5), INFORMACOES MEDIUMTEXT);
+
+42-exercício 5 
+-criar uma tabela chamada cadastro 
+-com 2 campos como VARCHAR, o nome e sobrenome 
+-limitar os 2 para 100 caracteres
+CREATE TABLE cadastro(nome VARCHAR(100), sobrenome VARCHAR(100)); 
+
+43-inserindo dados em uma tabela (especificando qual dado irá para qual coluna desta tabela)
+-o comando para inserir dados em uma tabela é: 
+	INSERT INTO <nome da tabela>(<nome da coluna>)VALUES(<valores>);
+	ex: INSERT INTO produtos (nome, sku, informacoes) VALUES ("Playstation 5", "PS5", "É um videogame de última geração");
+
+44-exercício 6
+-criar 2 inserts para inserir produtos na tabela produtos 
+-depois selecione todos os dados

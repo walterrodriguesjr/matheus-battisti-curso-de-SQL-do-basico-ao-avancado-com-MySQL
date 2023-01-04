@@ -28,5 +28,7 @@
 9-para remover uma tabela de um banco específico 
 	DROP TABLE <nome da tabela>
 
-10-
+10-o comando para inserir dados em uma tabela é: 
+	INSERT INTO <nome da tabela>(<nome da coluna>)VALUES(<valores>);
+	ex: INSERT INTO produtos (nome, sku, informacoes) VALUES ("Playstation 5", "PS5", "É um videogame de última geração");
 
