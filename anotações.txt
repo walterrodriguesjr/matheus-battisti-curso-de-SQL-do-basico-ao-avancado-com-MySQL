@@ -214,3 +214,78 @@ CREATE TABLE cadastro(nome VARCHAR(100), sobrenome VARCHAR(100));
 44-exercício 6
 -criar 2 inserts para inserir produtos na tabela produtos 
 -depois selecione todos os dados
+
+45-tipos numéricos 
+-BIT (1 a 64 caracteres)
+-TINYINT (1 A 255 caracteres)
+-BOLL = false que é zero, outros valores são verdadeiros 
+-INT valores gigantescos (MAIS USADO)
+
+46-criando tabelas com dados numéricos 
+-testando o BOOL e INT 
+- CREATE TABLE servidores (nome VARCHAR(100), espaco_disco INT(10), ligado BOOL);
+- INSERT INTO servidores(nome, espaco_disco, ligado) VALUES ("Servidor 1", 12338491, 0);
+
+47-exercício 7 
+-inserir mais 2 servidores na tabela servidores
+-selecionar todos
+-ok 
+
+48-tipos de dado de data 
+-os tipos de dados usados para data são: 
+-DATE aceita data no formato YYYY-MM-DD 
+-DATETIME aceita data no formato com horas também YYYY-MM-DD hh:mm:ss 
+-TIMESTAMP aceita data no formato DATETIME, porém apenas entre os anos 1970 A 2038 
+
+49-criando uma tabela com dados de data, DATAS SEMPRE ENTRE ""
+-criando uma tabela com nomes e data de nascimento, usando o DATE 
+-criado coluna de dados dentro desta tabela 
+
+50-exercício 8
+-inserir nome e data de nascimento na tabela 
+-fazer sleeção de todos os dado 
+
+51-porque escolher o tipo de dado correto? 
+-tem que ser o mais próximo da necessidade em questão 
+-o objetivo é otimizar o banco, economizar memória, aumentar desempenho
+
+52-alteração de tabelas 
+-há 3 tipos de alteração em SQL, todas começam com ALTER
+-adição de colunas 
+-remoção de colunas 
+-modificar tipo de coluna
+
+53-adicionar uma coluna 
+-está inserindo uma coluna desta tabela, mas sem inserir dados
+-ALTER TABLE <tabela> ADD COLUMN <nome> <tipo>
+EX: ALTER TABLE funcionarios ADD COLUMN profissao VARCHAR(100);
+
+54-exercício 9 
+-adicionar coluna cpf CHAR(11) na tabela funcionarios
+-adicionar outroa coluna qualquer 
+-inserir dados 
+-ok
+
+55-removendo colunas 
+-removendo colunas de uma tabela já existente 
+ALTER TABLE <tabela> DROP COLUMN <nome da coluna>
+ex: ALTER TABLE funcionarios DROP COLUMN profissao;
+
+56-exercício 10 
+-remova a coluna que você adicionou alteriormente no exercício 9 
+
+57-alterando o tipo de dado de uma coluna 
+-ALTER TABLE <tabela> MODIFY COLUMN <nome da coluna> <novo tipo>
+-EX> ALTER TABLE funcionarios MODIFY COLUMN data_nascimento DATE;
+
+58-conclusão da seção 
+-ok 
+
+
+seção 4-queries do CRUD 
+
+
+
+
+
+

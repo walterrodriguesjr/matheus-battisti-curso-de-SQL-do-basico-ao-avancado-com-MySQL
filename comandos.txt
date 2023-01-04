@@ -18,7 +18,7 @@
 	mysqldump -u root nome do banco > nome do arquivo.sql
 	ex: mysqldump -u root empresa2 > empresa2.sql
 
-7-é possível concatenar, selecionando primeiro o banco e depois atabela no mesmo comando 
+7-é possível concatenar, selecionando primeiro o banco e depois a tabela no mesmo comando 
 	SELECT * FROM empresa.funcionarios;
 
 8-para criar uma tabela, dentro de um banco já existente 
@@ -32,3 +32,27 @@
 	INSERT INTO <nome da tabela>(<nome da coluna>)VALUES(<valores>);
 	ex: INSERT INTO produtos (nome, sku, informacoes) VALUES ("Playstation 5", "PS5", "É um videogame de última geração");
 
+11-listar todas as linhas de dados de uma tabela, já estando apontando para um determinado DB
+	SELECT * FROM <tabela>
+	ex: SELECT * FROM servidores; 
+
+12-criando uma tabela com coluna no formato DATE 
+	CREATE TABLE aniversario(nome VARCHAR(100), nascimento DATE); 
+-inserindo dados com DATE dentro desta tabela 
+	INSERT INTO aniversario(nome, nascimento) VALUES ("João", "1986-03-12");
+
+13-adicionar uma coluna vazia em uma tabela
+-está inserindo uma coluna desta tabela, mas sem inserir dados
+-ALTER TABLE <tabela> ADD COLUMN <nome> <tipo>
+EX: ALTER TABLE funcionarios ADD COLUMN profissao VARCHAR(100);
+
+13-removendo colunas 
+-removendo colunas de uma tabela já existente 
+ALTER TABLE <tabela> DROP COLUMN <nome da coluna>
+ex: ALTER TABLE funcionarios DROP COLUMN profissao;
+
+14-alterando o tipo de dado de uma coluna 
+-ALTER TABLE <tabela> MODIFY COLUMN <nome da coluna> <novo tipo>
+-EX> ALTER TABLE funcionarios MODIFY COLUMN data_nascimento DATE;
+
+15-
