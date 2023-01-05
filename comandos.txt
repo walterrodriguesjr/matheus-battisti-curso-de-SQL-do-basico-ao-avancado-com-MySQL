@@ -55,4 +55,24 @@ ex: ALTER TABLE funcionarios DROP COLUMN profissao;
 -ALTER TABLE <tabela> MODIFY COLUMN <nome da coluna> <novo tipo>
 -EX> ALTER TABLE funcionarios MODIFY COLUMN data_nascimento DATE;
 
-15-
+15-selecionando colunas específicas 
+-serve para otimizar as querys, em vez de ficar trazendo tudo desnecessariamente 
+-para sleecionar coluna específica, substitui o * pelo nome da tabela 
+	SELECT coluna1, coluna2 FROM <nome da tabela>
+	ex: SELECT rg, cpf FROM pessoas;
+
+16-especificando uma query com WHERE 
+-ex1: SELECT * FROM pessoas WHERE nome = "Renan";
+-a instrução UPDATE é usada para atualizar dados
+	UPDATE <tabela> SET <coluna=valor> WHERE <condição>
+-atualizando a tabela pessoas, setando novo rg, onde o nome = "walter";
+	ex: UPDATE pessoas SET rg=142092891 WHERE nome = "Walter";
+
+17-deletando registros 
+-importante utilizar o WHERE para não deletar todos os dados, e sim, somente a linha 
+	que seja informada através da condição
+-utiliza-se a instrução DELETE 
+	DELETE FROM <nome da tabela> WHERE <condição> 
+	ex: DELETE FROM pessoas WHERE nome = "Charlene";
+
+18-

@@ -285,6 +285,90 @@ ex: ALTER TABLE funcionarios DROP COLUMN profissao;
 seção 4-queries do CRUD 
 
 
+59-introdução da seção 
+-explicação sobre CRUD 
+
+60-exercício 11
+-criar banco chamado cadastro 
+-neste banco, criar tabela chamado pessoas
+-nesta tablea, cria colunas: nome, rg, cpf e limite 
+-limite é um valor numérico 
+-inserir 5 dados
+-OK 
+
+61-o que é CRUD? 
+CRUD = create, read, update, delete (criar, let, atualizar, apagar)
+-a maioria das aplicações web tem estas aplicações 
+
+62-selecionando todos os dados 
+-para selecionar todos os dados de uma tabela 
+	Select * FROM <nome da tabela>
+
+63-selecionando colunas específicas 
+-serve para otimizar as querys, em vez de ficar trazendo tudo desnecessariamente 
+-para sleecionar coluna específica, substitui o * pelo nome da tabela 
+	SELECT coluna1, coluna2 FROM <nome da tabela>
+	ex: SELECT rg, cpf FROM pessoas;
+
+64-inserindo dados na tabela 
+-para inserir dados em uma determinada coluna da tabela 
+	INSERT INTO <tabela> (<colunas>) VALUES (valores)
+
+65-a importância do WHERE 
+-WHERE é usado como uma clausula de especificação, em uma query 
+-por exemplo, quais registros serão atualizados em um update 
+-usado sempre em filtros, pois especifica uma busca
+-ex: SELECT * FROM pessoas WHERE nome = "Renan";
+
+66-atualizando dados 
+-a instrução UPDATE é usada para atualizar dados
+	UPDATE <tabela> SET <coluna=valor> WHERE <condição>
+-atualizando a tabela pessoas, setando novo rg, onde o nome = "walter";
+	ex: UPDATE pessoas SET rg=142092891 WHERE nome = "Walter";
+
+67-exercício 12 
+-atualizar o limite da quarta tabela para 1000 
+-ok 
+
+68-deletando registros 
+-importante utilizar o WHERE para não deletar todos os dados, e sim, somente a linha 
+	que seja informada através da condição
+-utiliza-se a instrução DELETE 
+	DELETE FROM <nome da tabela> WHERE <condição> 
+	ex: DELETE FROM pessoas WHERE nome = "Charlene";
+
+69-exercício 13 
+-deletar registros que tenham limite maior que 2000 
+
+70-o famoso DELETE sem WHERE 
+-sem WHERE, irá deletar todos os dados da tabela em questão 
+-uma boa técnica é sempre dar um SELECT no dado em questão para confirmar antes de 
+	deletar 
+
+71-conclusão da seção 
+-OK 
+
+
+seção 5-avançando em SELECT 
+
+
+72-introdução da seção 
+-SELECT é a query mais importante do SQL, a operação mais realizada é de busca(SELECT)
+
+73-instalando um banco de dados 
+-instalando um banco maior para esta seção 
+-link: https://github.com/datacharmer/test_db
+-download manual da pasta toda 
+-acessa a pasta pelo CMD do XAMPP 
+- CREATE DATABASE employees;
+- USE employees;
+- source employees.sql; 
+
+
+
+
+
+
 
 
 
