@@ -75,4 +75,67 @@ ex: ALTER TABLE funcionarios DROP COLUMN profissao;
 	DELETE FROM <nome da tabela> WHERE <condição> 
 	ex: DELETE FROM pessoas WHERE nome = "Charlene";
 
-18-
+18-operadores do SQL 
+-operadores de comparação (>, <, >=, <=, =) para filtrar dados, baseado em comparações 
+-BETWEEN - seleção entre um intervalo 
+-LIKE - seleção por meio de algum padrão 
+-IN - seleção entre um conjunto de valores específicos 
+
+19-utilizando o DISTINCT (traz um de cada, que tem em uma coluna, de uma tabela)
+-vai selecionar apenas as variações de valores, ou seja, 1 de cada valor que seja igual 
+-por exemplo, se tem sexo M e F, vai mostrar um de cada  
+	ex: se temos 10 cidades diferentes de usuários no sistema, só recebemos 10 resultados; 
+	SELECT DISTINCT <coluna> FROM <tabela>
+
+20-operadores lógicos 
+-podemos combinar o WHERE com operadores lógicos, AND, OR, NOT 
+	ex: WHERE id > 10 OR salario > 5000;
+
+21-utilizando o AND
+-sua funcionalidade é igual como usado em funções 
+	ex: WHERE salario > 1000 AND cargo = 'programador';
+	ex: SELECT * FROM salaries WHERE salary > 155000 AND from_date > "1991-12-12";
+
+22-utilizando o operador OR 
+-sua funcionalidade é igual como usado em funções  
+	WHERE salario > 5000 OR profissao = "programador";
+	ex: SELECT * FROM titles WHERE title = "Senior Enginner" OR title = "Staff" OR emp_no > 12500 ORDER BY emp_no DESC;
+
+23-utilizando o NOT (negação)
+-sua funcionalidade é igual como usado em funções  
+	ex: SELECT * FROM titles WHERE NOT title = "Staff" AND NOT title = "Senior Engineer";
+
+24-ordenando resultado de consulta ORDER BY
+-o ORDER BY é uma instrução para ordenação de resultados 
+-é possível usa-lo de maneira ASC ou DESC 
+-geralmente é utilizado após o WHERE e baseado a alguma coluna 
+-ex: SELECT * FROM departments ORDER BY dept_name DESC;
+
+25-limitando resultados de consultas LIMIT 
+-serve para limitar os resultados e tornar a consulta mais rápida 
+-por exemplo, para limitar o resultado em 15, basta usar LIMIT 15, retornando os 15 primeiros 
+-pode ser unido com where 
+-ex> SELECT * FROM salaries ORDER BY salary DESC LIMIT 5;
+
+FUNÇÕES
+
+26-função MIN 
+-vai retornar o menor valor de uma coluna específica 
+-no parâmetro da função vai o nome da coluna, e depois do FROM, o nome da tabela
+ex: SELECT MIN(salary) FROM salaries;
+
+27-função MAX
+-vai retornar o maior valor de uma coluna específica 
+-no parâmetro da função vai o nome da coluna, e depois do FROM, o nome da tabela
+ex: SELECT MAX(salary) FROM salaries;
+
+28-função COUNT 
+-serve para retornar uma quantidade, é um tipo de contador
+ex: SELECT COUNT(salary) FROM salaries WHERE salary > 150000;
+
+29-função AVG
+-ela retorna a média de uma determinada coluna 
+-AVG significa average(média)
+ex: SELECT AVG(salary) FROM salaries;
+
+30-

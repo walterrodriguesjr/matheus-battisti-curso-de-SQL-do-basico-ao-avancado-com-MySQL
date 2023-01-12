@@ -364,12 +364,87 @@ seção 5-avançando em SELECT
 - USE employees;
 - source employees.sql; 
 
+74-a importância do SELECT 
+-a maioria das ações em banco envolvem consulta (SELECT)
+-em decorrência disso, é o que tem o maior número de variações 
+-possibilita assim, a criação de filtros avançados 
 
+75-operadores do SQL 
+-operadores de comparação (>, <, >=, <=, =) para filtrar dados, baseado em comparações 
+-BETWEEN - seleção entre um intervalo 
+-LIKE - seleção por meio de algum padrão 
+-IN - seleção entre um conjunto de valores específicos 
 
+76-utilizando o WHERE 
+- O WHERE (onde)
 
+77-exercício 14 
+-selecionar na tabela titles todas as colunas, porém apenas as emp_no for >= a 11500 
 
+78-utilizando o DISTINCT (traz um de cada, que tem em uma coluna, de uma tabela)
+-vai selecionar apenas as variações de valores, ou seja, 1 de cada valor que seja igual 
+-por exemplo, se tem sexo M e F, vai mostrar um de cada  
+	ex: se temos 10 cidades diferentes de usuários no sistema, só recebemos 10 resultados; 
+	SELECT DISTINCT <coluna> FROM <tabela>
 
+79-operadores lógicos 
+-podemos combinar o WHERE com operadores lógicos, AND, OR, NOT 
+	ex: WHERE id > 10 OR salario > 5000;
 
+80-utilizando o AND
+-sua funcionalidade é igual como usado em funções 
+	ex: WHERE salario > 1000 AND cargo = 'programador';
+	ex: SELECT * FROM salaries WHERE salary > 155000 AND from_date > "1991-12-12";
 
+81-utilizando o operador OR 
+-sua funcionalidade é igual como usado em funções  
+	WHERE salario > 5000 OR profissao = "programador";
+	ex: SELECT * FROM titles WHERE title = "Senior Enginner" OR title = "Staff" OR emp_no > 12500 ORDER BY emp_no DESC;
 
+82-utilizando o NOT (negação)
+-sua funcionalidade é igual como usado em funções  
+	ex: SELECT * FROM titles WHERE NOT title = "Staff" AND NOT title = "Senior Engineer";
 
+83-ordenando resultado de consulta ORDER BY
+-o ORDER BY é uma instrução para ordenação de resultados 
+-é possível usa-lo de maneira ASC ou DESC 
+-geralmente é utilizado após o WHERE e baseado a alguma coluna 
+-ex: SELECT * FROM departments ORDER BY dept_name DESC;
+
+84-exercício 15 
+-seelcionar na tabela titles todas as colunas, porém ordenar o títulos de maneira descrecente 
+
+85-limitando resultados de consultas LIMIT 
+-serve para limitar os resultados e tornar a consulta mais rápida 
+-por exemplo, para limitar o resultado em 15, basta usar LIMIT 15, retornando os 15 primeiros 
+-pode ser unido com where 
+-ex> SELECT * FROM salaries ORDER BY salary DESC LIMIT 5;
+
+86-exercício 16 
+-selecionar a tabela titles, ordenado ascendente pela coluna title e retornando os 5 primeiros
+
+87-introdução as funções do SQL 
+-funções são blocos de códigos reaproveitáveis 
+-um exemplo é a função MAX, que retorna o maior valor de uma determinada coluna 
+
+88-função MIN 
+-vai retornar o menor valor de uma coluna específica 
+-no parâmetro da função vai o nome da coluna, e depois do FROM, o nome da tabela
+ex: SELECT MIN(salary) FROM salaries;
+
+89-função MAX
+-vai retornar o maior valor de uma coluna específica 
+-no parâmetro da função vai o nome da coluna, e depois do FROM, o nome da tabela
+ex: SELECT MAX(salary) FROM salaries;
+
+90-função COUNT 
+-serve para retornar uma quantidade, é um tipo de contador
+ex: SELECT COUNT(salary) FROM salaries WHERE salary > 150000;
+
+91-exercício 17 
+-fazer um SELECT que conte o número de registros na tabela departments 
+
+92-função AVG
+-ela retorna a média de uma determinada coluna 
+-AVG significa average(média)
+ex: SELECT AVG(salary) FROM salaries;
