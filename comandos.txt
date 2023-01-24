@@ -138,4 +138,69 @@ ex: SELECT COUNT(salary) FROM salaries WHERE salary > 150000;
 -AVG significa average(média)
 ex: SELECT AVG(salary) FROM salaries;
 
-30-
+30-função SUM
+-SUM retorna a soma de todos os valores contídos na coluna informada 
+	SELECT SUM(salary) FROM SALARIES;
+
+31-operador LIKE 
+-utiliza-se em conjunto com o WHERE 
+-o LIKE serve para filtrar de maneira mais precisa, buscando com 
+	a ajuda do % %, bucando no início ou final da palavra 
+	SELECT * from employees WHERE first_name LIKE "%Parto%";
+
+
+32-selecionando itens de uma lista com IN 
+-traz dados específicos, dentro do que está especificado no In 
+	ex: SELECT * FROM  dept_emp WHERE dept_no IN ('d004', 'd005', 'd006');
+
+33-selecionando faixas de valores com BETWEEN 
+-o BETWEEN (entre) recebe uma faixa de valores 
+-o resultado retornado serão aqueles que estiverem dentro desta faixa especificada 
+-o AND é usado para determinar o intervalo 
+	ex: SELECT * FROM dept_emp WHERE dept_no BETWEEN 'd003' AND 'd005';
+
+34-criando ALIAS (apelidos) para colunas 
+-cria um pseudônimo para a coluna em questão 
+-o AS é utilizado para determinar como a coluna deve se chamar 
+	ex: SELECT SUM(salary)AS soma_salario FROM salaries;
+
+35-utilizando o NOT NULL 
+-ela força um valor de uma coluna não ser nulo
+-a instrução é colocada após o nome e tipo da coluna ser declarado 
+	ex: nome VARCHAR(100) NOT NULL 
+	CREATE TABLE pessoas (
+	nome VARCHAR(100) NOT NULL,
+	idade INT
+	);
+
+36-dados únicos com UNIQUE 
+-garante que entre os dados de uma coluna, não havarão dados iguais 
+	ALTER TABLE pessoas ADD COLUMN email VARCHAR(255) UNIQUE;
+	
+37-adicionando chave primária as tabelas 
+-a constraints PRIMARY KEY só pode ser adicionada em uma única coluna da tabela, geralmente o id 
+-é um identificador único 
+	CREATE TABLE produtos (
+	id INT NOT NULL,
+	nome VARCHAR(255),
+	sku VARCHAR(10),
+	PRIMARY KEY(id)
+	);
+
+38-relacionamentos entre tabelas com FOREIGN KEY 
+-é a ligação entre uma tabela e outra 
+-impede remoção de dados que tem ligação entre tabelas 
+	CREATE TABLE pessoas (
+		id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+		nome VARCHAR(100) NOT NULL,
+		idade INT
+		);
+
+	CREATE TABLE enderecos (
+		id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+		rua VARCHAR(100),
+		numero VARCHAR(100),
+		pessoa_id INT NOT NULL
+		FOREIGN KEY (pessoa_id) REFERENCES pessoas(id)
+		);
+

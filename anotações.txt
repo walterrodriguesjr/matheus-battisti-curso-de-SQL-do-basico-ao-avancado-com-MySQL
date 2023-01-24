@@ -448,3 +448,106 @@ ex: SELECT COUNT(salary) FROM salaries WHERE salary > 150000;
 -ela retorna a média de uma determinada coluna 
 -AVG significa average(média)
 ex: SELECT AVG(salary) FROM salaries;
+
+93-função SUM
+-SUM retorna a soma de todos os valores contídos na coluna informada 
+	SELECT SUM(salary) FROM SALARIES;
+
+94-operador LIKE 
+-utiliza-se em conjunto com o WHERE 
+-o LIKE serve para filtrar de maneira mais precisa, buscando com 
+	a ajuda do % %, bucando no início ou final da palavra 
+	SELECT * from employees WHERE first_name LIKE "%Parto%";
+
+95-exercício 18 
+-fazer um SELECT na tabela titles 
+-elecionar todos os titulos que contenham Engineer 
+	SELECT * FROM titles WHERE title LIKE "Engineer";
+
+96-selecionando itens de uma lista com IN 
+-traz dados específicos, dentro do que está especificado no In 
+	ex: SELECT * FROM  dept_emp WHERE dept_no IN ('d004', 'd005', 'd006');
+
+97-exercício 19 
+-na tabela employees fazer um SELECT de todos os registros que contenham no sobrenome: 
+	Facello e Peac; 
+	SELECT * FROM employees WHERE last_name IN ('Facello', 'Peac'); 
+
+98-selecionando faixas de valores com BETWEEN 
+-o BETWEEN (entre) recebe uma faixa de valores 
+-o resultado retornado serão aqueles que estiverem dentro desta faixa especificada 
+-o AND é usado para determinar o intervalo 
+	ex: SELECT * FROM dept_emp WHERE dept_no BETWEEN 'd003' AND 'd005';
+
+99-exercício 20 
+-fazer um SELECT na tabela de salário 
+-selecionar os salários entre 125000 a 175000 
+-usar o BETWEEN 
+	ex: SELECT * FROM salaries WHERE salary BETWEEN '125000' AND '175000';
+
+100-criando ALIAS (apelidos) para colunas 
+-cria um pseudônimo para a coluna em questão 
+-o AS é utilizado para determinar como a coluna deve se chamar 
+	ex: SELECT SUM(salary)AS soma_salario FROM salaries;
+
+101-conclusão da seção 
+-ok 
+
+
+seção 6-criando constraints nas tabelas 
+
+102-introdução da seção 
+-constraints = restrições 
+
+103-o que são constraints? 
+-são regras(restrições) que determinam como os campos serão preenchidos 
+-ex: NOT NULL = o cmapo não pode ser nulo 
+-as constraints são adicionadas na criação da tabela geralmente, porém podem ser alteradas 
+-servem para padronizar o projeto 
+
+104-utilizando o NOT NULL 
+-ela força um valor de uma coluna não ser nulo
+-a instrução é colocada após o nome e tipo da coluna ser declarado 
+	ex: nome VARCHAR(100) NOT NULL 
+	CREATE TABLE pessoas (
+	nome VARCHAR(100) NOT NULL,
+	idade INT
+	);
+
+105-dados únicos com UNIQUE 
+-garante que entre os dados de uma coluna, não havarão dados iguais 
+	ALTER TABLE pessoas ADD COLUMN email VARCHAR(255) UNIQUE;
+
+106-adicionando chave primária as tabelas 
+-a constraints PRIMARY KEY só pode ser adicionada em uma única coluna da tabela, geralmente o id 
+-é um identificador único 
+	CREATE TABLE produtos (
+	id INT NOT NULL,
+	nome VARCHAR(255),
+	sku VARCHAR(10),
+	PRIMARY KEY(id)
+	);
+
+107-valores automáticos com AUTO INCREMENT 
+-serve para adicionar a quantidade de um em todo registro adicionado 
+-muito utilizado na coluna id, não sendo necessário se preocupar com ela no INSERT 
+
+108-relacionamentos entre tabelas com FOREIGN KEY 
+-é a ligação entre uma tabela e outra 
+-impede remoção de dados que tem ligação entre tabelas 
+	para deletar, primeiro precisa deletar os dados referenciados (a que possui a coluna da foreign key)
+	CREATE TABLE pessoas (
+		id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+		nome VARCHAR(100) NOT NULL,
+		idade INT
+		);
+
+	CREATE TABLE enderecos (
+		id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+		rua VARCHAR(100),
+		numero VARCHAR(100),
+		pessoa_id INT NOT NULL
+		FOREIGN KEY (pessoa_id) REFERENCES pessoas(id)
+		);
+
+
